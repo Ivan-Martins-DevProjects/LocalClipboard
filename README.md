@@ -1,19 +1,51 @@
-# README
+## 📋 Local Copy & Paste via WebSocket
 
-## About
+Uma ferramenta leve escrita em **Go** que permite enviar textos para a área de transferência (clipboard) de outra máquina em tempo real usando **WebSocket**.
 
-This is the official Wails React template.
+Ideal para quem quer copiar algo no celular ou em outra máquina e colar instantaneamente no computador.
 
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
+---
 
-## Live Development
+## 🚀 Visão Geral
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
+O projeto funciona como um **servidor local de clipboard**:
 
-## Building
+- Um **server WebSocket** roda na máquina destino.
+- Qualquer cliente pode enviar texto para esse server.
+- Ao receber a mensagem, o server:
+  - processa o payload
+  - copia automaticamente o conteúdo para o clipboard da máquina
 
-To build a redistributable, production mode package, use `wails build`.
+Atualmente o envio pode ser feito via **Postman** ou qualquer cliente WebSocket.
+
+---
+
+## ✨ Funcionalidades
+
+- ✅ Servidor WebSocket local  
+- ✅ Cópia automática para o clipboard  
+- ✅ Baixo consumo de recursos (Go)  
+- ✅ Builds para:
+  - Windows
+  - Linux
+- 🚧 Cliente mobile em desenvolvimento  
+- 🚧 Interface gráfica (planejado)
+
+---
+
+## 🧠 Como Funciona
+### Fluxo
+1. O servidor é executado na porta 5858 na máquina que receberá o conteúdo.  
+2. Um cliente WebSocket envia um texto.  
+3. Ao enviar o payload, o texto:
+   - é recebido pelo server  
+   - é escrito diretamente no clipboard local
+
+## Binários
+### Linux
+```bash
+./build/bin/LocalClipboard
+```
+### Windows
+```bash
+./build/windowss
