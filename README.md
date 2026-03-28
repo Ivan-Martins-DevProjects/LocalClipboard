@@ -48,4 +48,4 @@ Atualmente o envio pode ser feito via **Postman** ou qualquer cliente WebSocket.
 ```
 ### Windows
 ```bash
-./build/windowss
+./build/windows
